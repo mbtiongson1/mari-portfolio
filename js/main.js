@@ -8,18 +8,18 @@
 
   /* --- Mobile nav toggle --- */
   function initNav() {
-    const toggle = document.querySelector('.nav__toggle');
-    const links = document.querySelector('.nav__links');
+    var toggle = document.querySelector('.nav__toggle');
+    var links = document.querySelector('.nav__links');
 
     if (!toggle || !links) return;
 
     toggle.addEventListener('click', function () {
-      const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+      var isOpen = toggle.getAttribute('aria-expanded') === 'true';
       toggle.setAttribute('aria-expanded', String(!isOpen));
       links.setAttribute('data-open', String(!isOpen));
 
       if (!isOpen) {
-        const firstLink = links.querySelector('.nav__link');
+        var firstLink = links.querySelector('.nav__link');
         if (firstLink) firstLink.focus();
       }
     });
@@ -46,10 +46,10 @@
 
   /* --- Reveal on scroll --- */
   function initReveals() {
-    const reveals = document.querySelectorAll('.reveal');
+    var reveals = document.querySelectorAll('.reveal');
     if (!reveals.length) return;
 
-    // Respect reduced motion
+    // Respect reduced motion: show everything immediately
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       reveals.forEach(function (el) {
         el.classList.add('is-visible');
@@ -67,8 +67,8 @@
         });
       },
       {
-        threshold: 0.1,
-        rootMargin: '0px 0px -40px 0px'
+        threshold: 0.05,
+        rootMargin: '50px 0px -20px 0px'
       }
     );
 
@@ -80,14 +80,28 @@
   /* --- Active nav link --- */
   function setActiveNav() {
     var path = window.location.pathname;
+    var href = window.location.href;
     var links = document.querySelectorAll('.nav__link');
 
     links.forEach(function (link) {
-      var href = link.getAttribute('href');
-      if (!href) return;
+      var linkHref = link.getAttribute('href');
+      if (!linkHref || linkHref.startsWith('http')) return;
 
-      // Normalize paths for comparison
-      var linkPath = href.replace(/^\.\.?\//, '/').replace(/index\.html$/, '');
+      // For file:// protocol, compare by filename
+      if (window.location.protocol === 'file:') {
+        var currentFile = path.split('/').pop() || 'index.html';
+        var linkFile = linkHref.split('/').pop() || 'index.html';
+        if (linkFile === '' || linkFile === '..' || linkFile === '.') {
+          linkFile = 'index.html';
+        }
+        if (currentFile === linkFile) {
+          link.setAttribute('aria-current', 'page');
+        }
+        return;
+      }
+
+      // For http(s), normalize paths
+      var linkPath = linkHref.replace(/^\.\.?\//, '/').replace(/index\.html$/, '');
       var currentPath = path.replace(/index\.html$/, '');
 
       if (currentPath === linkPath ||
@@ -97,10 +111,19 @@
     });
   }
 
+  /* --- Auto-update copyright year --- */
+  function updateYear() {
+    var el = document.querySelector('.footer__copy');
+    if (el) {
+      el.textContent = '© ' + new Date().getFullYear() + ' Maricar S. Tiongson';
+    }
+  }
+
   /* --- Init --- */
   document.addEventListener('DOMContentLoaded', function () {
     initNav();
     initReveals();
     setActiveNav();
+    updateYear();
   });
 })();
