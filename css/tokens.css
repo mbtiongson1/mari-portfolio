@@ -1,0 +1,109 @@
+/* ============================================
+   DESIGN TOKENS — Mari Portfolio
+   A technical writer's portfolio.
+   Grounded, generous, warm.
+   ============================================ */
+
+:root {
+  /* ---- Color: Committed green strategy ---- */
+  /* Primary: deep fern green, drawn from the botanical warmth of Mari's photo */
+  --color-primary: oklch(0.45 0.12 155);
+  --color-primary-hover: oklch(0.38 0.10 155);
+  --color-primary-light: oklch(0.92 0.04 155);
+  --color-primary-subtle: oklch(0.96 0.02 155);
+
+  /* Surface: warm ivory, never pure white */
+  --color-surface: oklch(0.97 0.005 80);
+  --color-surface-raised: oklch(0.99 0.003 80);
+  --color-surface-sunken: oklch(0.94 0.008 80);
+
+  /* Text: warm near-black, never pure black */
+  --color-text: oklch(0.25 0.01 80);
+  --color-text-muted: oklch(0.50 0.01 80);
+  --color-text-faint: oklch(0.62 0.008 80);
+  --color-text-on-primary: oklch(0.97 0.005 155);
+
+  /* Borders and separators */
+  --color-border: oklch(0.88 0.01 80);
+  --color-border-strong: oklch(0.78 0.01 80);
+
+  /* Accent: selective terracotta warmth */
+  --color-warm: oklch(0.62 0.14 50);
+  --color-warm-light: oklch(0.90 0.06 50);
+
+  /* Focus ring */
+  --color-focus: oklch(0.55 0.15 155);
+
+  /* ---- Typography ---- */
+  --font-display: 'Brygada 1918', Georgia, 'Times New Roman', serif;
+  --font-body: 'Figtree', system-ui, -apple-system, sans-serif;
+
+  /* Scale: ~1.33 (perfect fourth) */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1.125rem;
+  --text-md: 1.25rem;
+  --text-lg: clamp(1.25rem, 1.5vw + 0.5rem, 1.5rem);
+  --text-xl: clamp(1.5rem, 2vw + 0.5rem, 2rem);
+  --text-2xl: clamp(1.75rem, 2.5vw + 0.5rem, 2.5rem);
+  --text-3xl: clamp(2rem, 3vw + 0.5rem, 3rem);
+  --text-display: clamp(2.25rem, 4vw + 0.5rem, 3.75rem);
+
+  /* Line heights */
+  --leading-tight: 1.2;
+  --leading-snug: 1.35;
+  --leading-normal: 1.6;
+  --leading-relaxed: 1.75;
+
+  /* Font weights */
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  /* Measure */
+  --measure-body: 68ch;
+  --measure-narrow: 52ch;
+  --measure-wide: 80ch;
+
+  /* ---- Spacing ---- */
+  /* Intentionally varied for rhythm */
+  --space-2xs: 0.25rem;
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: clamp(3rem, 5vw + 1rem, 5rem);
+  --space-4xl: clamp(4rem, 7vw + 1rem, 8rem);
+  --space-section: clamp(4rem, 8vw + 1rem, 10rem);
+
+  /* ---- Layout ---- */
+  --page-max-width: 72rem;
+  --page-gutter: clamp(1.25rem, 4vw, 3rem);
+
+  /* ---- Motion ---- */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-fast: 150ms;
+  --duration-normal: 300ms;
+  --duration-slow: 500ms;
+  --duration-reveal: 800ms;
+
+  /* ---- Borders ---- */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+}
+
+/* Reduced motion: collapse durations */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-fast: 0ms;
+    --duration-normal: 0ms;
+    --duration-slow: 0ms;
+    --duration-reveal: 0ms;
+  }
+}
