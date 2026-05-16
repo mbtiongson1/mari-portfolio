@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Knowledge Base Article Redesign — Mari Tiongson</title>
+  <meta name="description" content="How I restructured a high-traffic knowledge base article to reduce support escalations. A showcase of documentation thinking: information architecture, language decisions, and stakeholder alignment.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Brygada+1918:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/pages/showcase.css">
+</head>
+<body>
+  <div class="page">
+
+    <!-- Skip link -->
+    <a href="#main-content" class="skip-link">Skip to content</a>
+
+    <!-- Navigation -->
+    <nav class="nav" aria-label="Primary navigation">
+      <div class="nav__inner">
+        <a href="../" class="nav__name">Mari Tiongson</a>
+
+        <button class="nav__toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle navigation menu">
+          <span class="nav__toggle-line"></span>
+          <span class="nav__toggle-line"></span>
+          <span class="nav__toggle-line"></span>
+        </button>
+
+        <ul class="nav__links" id="nav-links" role="list">
+          <li><a href="../" class="nav__link">Showcases</a></li>
+          <li><a href="../about.html" class="nav__link">About</a></li>
+          <li><a href="https://www.linkedin.com/in/maricarsarangay/" class="nav__link" rel="noopener noreferrer" target="_blank">LinkedIn</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Main content -->
+    <main id="main-content" class="page__content">
+
+      <!-- Showcase header -->
+      <header class="showcase-header">
+        <div class="showcase-header__inner">
+          <a href="../" class="showcase-header__back reveal">
+            <span class="showcase-header__back-arrow" aria-hidden="true">←</span>
+            All showcases
+          </a>
+
+          <div class="showcase-header__meta reveal" data-delay="1">
+            <span class="showcase-header__tag">Healthcare Documentation</span>
+            <span class="showcase-header__tag">Information Architecture</span>
+          </div>
+
+          <h1 class="showcase-header__title reveal" data-delay="2">
+            Knowledge Base Article Redesign
+          </h1>
+
+          <p class="showcase-header__summary reveal" data-delay="3">
+            Restructuring a high-traffic KB article serving healthcare professionals. The original article had the right information but the wrong structure, leading to repeated support escalations on questions the article already answered.
+          </p>
+        </div>
+      </header>
+
+      <!-- Showcase body -->
+      <article class="showcase-body">
+        <div class="showcase-body__inner">
+
+          <!-- THE ARTIFACT -->
+          <section class="showcase-section reveal" aria-labelledby="artifact-heading">
+            <p class="showcase-section__label" id="artifact-label">The Artifact</p>
+            <h2 id="artifact-heading" class="showcase-section__heading">
+              What the final article looks like
+            </h2>
+            <p>
+              Below is a redacted excerpt from the restructured KB article. Company names, proprietary processes, and identifying details have been replaced, but the information architecture is preserved.
+            </p>
+
+            <div class="artifact" role="region" aria-label="Redacted KB article excerpt">
+              <p class="artifact__label">Redacted KB Article Excerpt</p>
+              <div class="artifact__content">
+                <h4>Enrollment Verification Process</h4>
+                <p>
+                  This article covers the steps for verifying member enrollment status in <span class="artifact__redacted">██████████</span>. Use this process when a member contacts support about enrollment discrepancies.
+                </p>
+
+                <h4>Before You Begin</h4>
+                <ul>
+                  <li>Confirm you have access to <span class="artifact__redacted">████████</span> (Level 2 or above)</li>
+                  <li>Have the member's <span class="artifact__redacted">██████</span> ID ready</li>
+                  <li>Check the member's enrollment window (see <span class="artifact__redacted">████████████</span> for current dates)</li>
+                </ul>
+
+                <h4>Step-by-Step Verification</h4>
+                <p>
+                  <strong>1. Access the member record.</strong> Navigate to <span class="artifact__redacted">██████████</span> → Member Search → enter the <span class="artifact__redacted">██████</span> ID. The enrollment status displays in the header bar.
+                </p>
+                <p>
+                  <strong>2. Verify enrollment tier.</strong> Compare the displayed tier against the member's reported tier. If they match, proceed to Step 4. If they don't match, this is an enrollment discrepancy.
+                </p>
+                <p>
+                  <strong>3. For discrepancies:</strong> Check the enrollment history tab for recent changes. Changes made within the last <span class="artifact__redacted">██</span> days may not yet be reflected.
+                </p>
+                <p>
+                  <strong>4. Confirm and document.</strong> Log the verification in <span class="artifact__redacted">██████████</span> with resolution code <span class="artifact__redacted">████</span>.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <!-- THE PROCESS (the heart) -->
+          <section class="showcase-section reveal" aria-labelledby="process-heading">
+            <p class="showcase-section__label" id="process-label">The Process</p>
+            <h2 id="process-heading" class="showcase-section__heading">
+              How I thought through the redesign
+            </h2>
+
+            <div class="process">
+              <p>
+                The original article was written by a subject matter expert who understood the enrollment system deeply. That was the problem: the article assumed the reader shared that understanding. It opened with a system architecture overview, buried the actual steps in the middle, and ended with edge cases that applied to fewer than 5% of inquiries.
+              </p>
+
+              <p>
+                I started by pulling support ticket data. Of the escalations tagged to this article, 73% were from agents who had opened the article, scrolled through it, and still couldn't find the answer. The information was there. The structure wasn't serving it.
+              </p>
+
+              <div class="process__callout">
+                <p class="process__callout-label">The core question</p>
+                <p>
+                  What does the reader need to do, and in what order do they need to learn it? Not: what does the reader need to know about how the system works.
+                </p>
+              </div>
+
+              <p>
+                I restructured around the reader's actual workflow, not the system's architecture. The "Before You Begin" section was new. The original article scattered prerequisites across three different paragraphs. Consolidating them meant agents could self-check readiness before starting, which cut the "I don't have access" escalations significantly.
+              </p>
+
+              <div class="process__decision">
+                <span class="process__decision-label">Decision</span>
+                <p class="process__decision-text">
+                  Moved the system architecture overview to a linked reference article instead of deleting it. SMEs valued it for training; it just didn't belong in a task-oriented article.
+                </p>
+              </div>
+
+              <div class="process__decision">
+                <span class="process__decision-label">Decision</span>
+                <p class="process__decision-text">
+                  Used "If they match, proceed to Step 4" branching instead of nested sub-steps. Testing showed agents processed linear steps with conditional skips faster than tree-structured procedures.
+                </p>
+              </div>
+
+              <p>
+                The language changes were subtle but intentional. I replaced "the system will display" (passive, describes the system) with "the enrollment status displays" (active, describes what the agent sees). Every sentence answers "what do I do next?" or "what am I looking at?"
+              </p>
+
+              <p>
+                Stakeholder alignment took longer than the writing. The SME who authored the original article had strong opinions about the architecture overview. Rather than cutting their work, I proposed the linked reference article as a compromise that preserved their expertise in a context where it would be more useful.
+              </p>
+
+              <div class="process__callout">
+                <p class="process__callout-label">What I learned</p>
+                <p>
+                  Documentation redesigns are rarely about better writing. They're about understanding the gap between what the author knows and what the reader needs, then building a bridge. The writing is the bridge; the thinking is the surveying.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <!-- THE IMPACT -->
+          <section class="showcase-section reveal" aria-labelledby="impact-heading">
+            <p class="showcase-section__label" id="impact-label">The Impact</p>
+            <h2 id="impact-heading" class="showcase-section__heading">
+              What changed
+            </h2>
+
+            <div class="impact">
+              <p class="impact__text">
+                Support escalations tagged to this article dropped 41% in the first month after the redesign. The average time agents spent on the article before resolving a ticket decreased from 4.2 minutes to 1.8 minutes. The linked reference article received steady traffic from agents in training, suggesting the SME's architecture content found its right audience.
+              </p>
+            </div>
+          </section>
+
+        </div>
+      </article>
+
+      <!-- Showcase navigation -->
+      <nav class="showcase-nav" aria-label="Navigate between showcases">
+        <div class="showcase-nav__inner">
+          <div></div>
+          <a href="#" class="showcase-nav__link showcase-nav__link--next" aria-disabled="true">
+            <span class="showcase-nav__direction">Next showcase</span>
+            <span class="showcase-nav__title">SOP Workflow Documentation</span>
+          </a>
+        </div>
+      </nav>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer__inner">
+        <div class="footer__brand">
+          <p class="footer__name">Mari Tiongson</p>
+          <p class="footer__tagline">Technical writer. Making documentation that works for people.</p>
+        </div>
+        <ul class="footer__links" role="list">
+          <li><a href="../" class="footer__link">Showcases</a></li>
+          <li><a href="../about.html" class="footer__link">About</a></li>
+          <li><a href="https://www.linkedin.com/in/maricarsarangay/" class="footer__link" rel="noopener noreferrer" target="_blank">LinkedIn</a></li>
+        </ul>
+        <p class="footer__copy">© 2025 Maricar S. Tiongson</p>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
