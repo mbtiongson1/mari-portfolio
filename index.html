@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mari Tiongson — Technical Writer</title>
+  <meta name="description" content="Portfolio of Maricar S. Tiongson, a technical writer who makes documentation that empowers people. Explore process-driven showcases of documentation craft.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Brygada+1918:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/pages/landing.css">
+</head>
+<body>
+  <div class="page">
+
+    <!-- Skip link -->
+    <a href="#main-content" class="skip-link">Skip to content</a>
+
+    <!-- Navigation -->
+    <nav class="nav" aria-label="Primary navigation">
+      <div class="nav__inner">
+        <a href="/" class="nav__name">Mari Tiongson</a>
+
+        <button class="nav__toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle navigation menu">
+          <span class="nav__toggle-line"></span>
+          <span class="nav__toggle-line"></span>
+          <span class="nav__toggle-line"></span>
+        </button>
+
+        <ul class="nav__links" id="nav-links" role="list">
+          <li><a href="/" class="nav__link" aria-current="page">Showcases</a></li>
+          <li><a href="about.html" class="nav__link">About</a></li>
+          <li><a href="https://www.linkedin.com/in/maricarsarangay/" class="nav__link" rel="noopener noreferrer" target="_blank">LinkedIn</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Main content -->
+    <main id="main-content" class="page__content">
+
+      <!-- Hero -->
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero__inner">
+          <div class="hero__content">
+            <p class="hero__label reveal">Technical Writer</p>
+            <h1 id="hero-title" class="hero__title reveal" data-delay="1">
+              Documentation that works for people.
+            </h1>
+            <p class="hero__description reveal" data-delay="2">
+              I write documentation that empowers teams, sustains impact, and turns institutional knowledge into action. This is how I think through that process.
+            </p>
+            <a href="#showcases" class="hero__cta reveal" data-delay="3">
+              See the work
+              <span class="hero__cta-arrow" aria-hidden="true">→</span>
+            </a>
+          </div>
+          <div class="hero__photo-wrapper reveal" data-delay="2">
+            <img
+              src="assets/mari-photo.jpg"
+              alt="Mari Tiongson smiling among ferns, wearing a light blouse"
+              class="hero__photo"
+              width="420"
+              height="525"
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- Showcases -->
+      <section id="showcases" class="showcases-intro" aria-labelledby="showcases-heading">
+        <div class="showcases-intro__inner">
+          <h2 id="showcases-heading" class="showcases-intro__heading reveal">Showcases</h2>
+          <p class="showcases-intro__sub reveal" data-delay="1">
+            Each showcase walks through a piece of documentation work: the artifact itself, the decisions behind it, and the impact it had.
+          </p>
+        </div>
+      </section>
+
+      <section class="showcase-list" aria-label="List of showcases">
+        <div class="showcase-list__inner">
+
+          <!-- Showcase 1 -->
+          <a href="showcases/knowledge-base-redesign.html" class="showcase-entry reveal">
+            <span class="showcase-entry__number" aria-hidden="true">01</span>
+            <div class="showcase-entry__body">
+              <h3 class="showcase-entry__title">Knowledge Base Article Redesign</h3>
+              <div class="showcase-entry__meta">
+                <span>Healthcare Documentation</span>
+                <span>·</span>
+                <span>Information Architecture</span>
+              </div>
+              <p class="showcase-entry__excerpt">
+                Restructuring a high-traffic KB article to reduce support escalations. How I approached the information hierarchy, language decisions, and stakeholder alignment.
+              </p>
+            </div>
+            <span class="showcase-entry__arrow" aria-hidden="true">→</span>
+          </a>
+
+          <!-- Showcase 2 (placeholder) -->
+          <a href="#" class="showcase-entry reveal" data-delay="1" aria-disabled="true">
+            <span class="showcase-entry__number" aria-hidden="true">02</span>
+            <div class="showcase-entry__body">
+              <h3 class="showcase-entry__title">SOP Workflow Documentation</h3>
+              <div class="showcase-entry__meta">
+                <span>Process Documentation</span>
+                <span>·</span>
+                <span>Workflow Design</span>
+              </div>
+              <p class="showcase-entry__excerpt">
+                Designing a living SOP system that teams actually use. Balancing compliance requirements with practical usability.
+              </p>
+            </div>
+            <span class="showcase-entry__arrow" aria-hidden="true">→</span>
+          </a>
+
+          <!-- Showcase 3 (placeholder) -->
+          <a href="#" class="showcase-entry reveal" data-delay="2" aria-disabled="true">
+            <span class="showcase-entry__number" aria-hidden="true">03</span>
+            <div class="showcase-entry__body">
+              <h3 class="showcase-entry__title">Product Content Editorial System</h3>
+              <div class="showcase-entry__meta">
+                <span>Web Content</span>
+                <span>·</span>
+                <span>Editorial Guidelines</span>
+              </div>
+              <p class="showcase-entry__excerpt">
+                Building editorial standards for a product website framework. How content governance shaped the team's output quality.
+              </p>
+            </div>
+            <span class="showcase-entry__arrow" aria-hidden="true">→</span>
+          </a>
+
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer__inner">
+        <div class="footer__brand">
+          <p class="footer__name">Mari Tiongson</p>
+          <p class="footer__tagline">Technical writer. Making documentation that works for people.</p>
+        </div>
+        <ul class="footer__links" role="list">
+          <li><a href="/" class="footer__link">Showcases</a></li>
+          <li><a href="about.html" class="footer__link">About</a></li>
+          <li><a href="https://www.linkedin.com/in/maricarsarangay/" class="footer__link" rel="noopener noreferrer" target="_blank">LinkedIn</a></li>
+        </ul>
+        <p class="footer__copy">© 2025 Maricar S. Tiongson</p>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
