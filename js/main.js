@@ -80,32 +80,26 @@
   /* --- Active nav link --- */
   function setActiveNav() {
     var path = window.location.pathname;
-    var href = window.location.href;
     var links = document.querySelectorAll('.nav__link');
 
     links.forEach(function (link) {
       var linkHref = link.getAttribute('href');
       if (!linkHref || linkHref.startsWith('http')) return;
 
-      // For file:// protocol, compare by filename
-      if (window.location.protocol === 'file:') {
-        var currentFile = path.split('/').pop() || 'index.html';
-        var linkFile = linkHref.split('/').pop() || 'index.html';
-        if (linkFile === '' || linkFile === '..' || linkFile === '.') {
-          linkFile = 'index.html';
-        }
-        if (currentFile === linkFile) {
-          link.setAttribute('aria-current', 'page');
-        }
-        return;
-      }
+      // Remove existing aria-current
+      link.removeAttribute('aria-current');
 
-      // For http(s), normalize paths
-      var linkPath = linkHref.replace(/^\.\.?\//, '/').replace(/index\.html$/, '');
-      var currentPath = path.replace(/index\.html$/, '');
+      // Normalize current path: remove trailing slash and index.html
+      var normalizedCurrent = path.replace(/\/$/, '').replace(/\/index\.html$/, '') || '/';
 
-      if (currentPath === linkPath ||
-        (linkPath !== '/' && currentPath.startsWith(linkPath))) {
+      // Normalize link path: 
+      // 1. Get the absolute path the link points to (relative to current page)
+      // 2. Normalize it like the current path
+      var tempAnchor = document.createElement('a');
+      tempAnchor.href = linkHref;
+      var normalizedLink = tempAnchor.pathname.replace(/\/$/, '').replace(/\/index\.html$/, '') || '/';
+
+      if (normalizedCurrent === normalizedLink) {
         link.setAttribute('aria-current', 'page');
       }
     });
